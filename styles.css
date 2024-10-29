@@ -1,0 +1,13 @@
+body main {
+        background-color: rgb(241, 213, 152);
+    }
+
+button {
+    background-color: rgb(188, 230, 92);
+}
+
+.contenedor-flex {
+    margin: 15px;
+    display: flex;
+    justify-content: space-between;
+}
