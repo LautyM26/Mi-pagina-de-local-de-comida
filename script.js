@@ -2,45 +2,40 @@ let nombre
 let pedidos = []
 let productoSeleccionado
 
-document.addEventListener("DOMContentLoaded", function () {
-    const menu = document.getElementById("menu")
-    document.getElementById("botonContinuar").onclick = guardarNombre
+const menu = document.getElementById("menu")
+document.getElementById("botonContinuar").onclick = guardarNombre
 
-    const productos = [
-        { nombre: "Pizza", precio: 8000 },
-        { nombre: "Hamburguesa", precio: 6000 },
-        { nombre: "Pancho", precio: 3000 },
-        { nombre: "Fideos", precio: 7500 },
-        { nombre: "Sushi", precio: 13000 },
-    ]
+const productos = [
+    { nombre: "Pizza", precio: 8000 },
+    { nombre: "Hamburguesa", precio: 6000 },
+    { nombre: "Pancho", precio: 3000 },
+    { nombre: "Fideos", precio: 7500 },
+    { nombre: "Sushi", precio: 13000 },
+]
 
-    productos.forEach(producto => {
-        const boton = document.createElement("button")
-        boton.innerText = `${producto.nombre} ($${producto.precio})`
-        boton.onclick = () => seleccionarProducto(producto.nombre.toLowerCase())
-        menu.appendChild(boton)
-    })
-
-    {
-        const verPedidoButton = document.createElement("button")
-
-        verPedidoButton.innerText = "Ver Pedido"
-        verPedidoButton.onclick = verPedido
-        menu.appendChild(verPedidoButton)
-    }
-
-    {
-       const finalizarPedidoButton = document.createElement("button")
-   
-       finalizarPedidoButton.innerText = "Finalizar Pedido"
-       finalizarPedidoButton.onclick = cuentaFinal
-       menu.appendChild(finalizarPedidoButton)
-    }
-
-    document.getElementById("confirmarPedido").onclick = confirmarPedido
-    document.getElementById("cancelar").onclick = cancelar
-
+productos.forEach(producto => {
+    const boton = document.createElement("button")
+    boton.innerText = `${producto.nombre} ($${producto.precio})`
+    boton.onclick = () => seleccionarProducto(producto.nombre.toLowerCase())
+    menu.appendChild(boton)
 })
+
+{
+    const verPedidoButton = document.createElement("button")
+    verPedidoButton.innerText = "Ver Pedido"
+    verPedidoButton.onclick = verPedido
+    menu.appendChild(verPedidoButton)
+}
+
+{
+   const finalizarPedidoButton = document.createElement("button")
+
+   finalizarPedidoButton.innerText = "Finalizar Pedido"
+   finalizarPedidoButton.onclick = cuentaFinal
+   menu.appendChild(finalizarPedidoButton)
+}
+document.getElementById("confirmarPedido").onclick = confirmarPedido
+document.getElementById("cancelar").onclick = cancelar
 
 
 function guardarNombre() {
@@ -54,81 +49,63 @@ function guardarNombre() {
 
 function seleccionarProducto(producto) {
     productoSeleccionado = producto;
+    asignarProducto(producto);
+    document.getElementById("mensaje").innerText = mensaje;
     document.getElementById("menu").style.display = "none"
     document.getElementById("detalle").style.display = "block"
+}
 
     let mensaje = ""
     let maxCantidad = 0
     let precioUnitario = 0
 
-    function pizzas () {
-        mensaje = "¿cuantas pizzas desea ordenar? (stock maximo 300 pizzas)" 
-        maxCantidad = 300
-        precioUnitario = 8000
-     }
-    
-    function hamburguesas () {
-        mensaje = "¿cuantas hamburguesas desea ordenar? (stock maximo 200 hamburguesas)"
-        maxCantidad = 200
-        precioUnitario = 6000
-     }
-    
-    function panchos () {
-        mensaje = "¿cuantos panchos desea ordenar? (stock maximo 500 panchos)"
-        maxCantidad = 500
-        precioUnitario = 3000
-     }
-    
-    function fideos () {
-        mensaje = "¿cuantas fideos desea ordenar? (stock maximo 100 platos de fideos)"
-        maxCantidad = 100
-        precioUnitario = 7500
-     }
-    
-    function sushi () {
-        mensaje = "¿cuantos sushis desea ordenar? (stock maximo 100 sushis)"
-        maxCantidad = 100
-        precioUnitario = 13000
-     }
-    
-    switch (producto) {
-    case "pizza":
-        pizzas()
-        break
-    case "hamburguesa":
-        hamburguesas()
-        break
-    case "pancho":
-        panchos()
-        break; 
-    case "fideos":
-        fideos()
-        break
-    case "sushi":
-        sushi()
-        break; 
-    default:
-        mensaje = "Usted eligio un numero o caracter equiocado, porfavor vuelva a seleccionar"
-        break
+
+    function asignarValores (mensajeProducto, cantidad, precio) {
+        mensaje = mensajeProducto
+        maxCantidad = cantidad
+        precioUnitario = precio
     }
 
-    document.getElementById("mensaje").innerText = mensaje
-    
-    document.getElementById("confirmarPedido").onclick = function() {
-        let cantidad = parseInt(document.getElementById("cantidad").value)
 
-        if (cantidad > 0 && cantidad <= maxCantidad) {
-            let total = cantidad * precioUnitario
-            pedidos.push({producto: productoSeleccionado, cantidad: cantidad, total: total})
-            alert(`Muchas gracias, tu pedido de ${cantidad} ${productoSeleccionado}(s) ha sido realizado. Total: $${total}`)
-        } else {
-            alert(`No podemos procesar esa cantidad. Por favor, elige lo que dice la consigna`)
+    function asignarProducto(producto) {
+        switch (producto) {
+            case "pizza":
+                asignarValores("¿cuantas pizzas desea ordenar? (stock maximo 300 pizzas)", 300, 8000)
+                break
+            case "hamburguesa":
+                asignarValores("¿cuantas hamburguesas desea ordenar? (stock maximo 200 hamburguesas)", 200, 6000)
+                break
+            case "pancho":
+                asignarValores("¿cuantos panchos desea ordenar? (stock maximo 500 panchos)", 500, 3000)
+                break; 
+            case "fideos":
+                asignarValores("¿cuantas fideos desea ordenar? (stock maximo 100 platos de fideos)", 100, 7500)
+                break
+            case "sushi":
+                asignarValores("¿cuantos sushis desea ordenar? (stock maximo 100 sushis)", 100, 13000)
+                break; 
+            default:
+                mensaje = "Usted eligio un numero o caracter equiocado, porfavor vuelva a seleccionar"
+                maxCantidad = 0;
+                precioUnitario = 0;
+                break
         }
-
-        document.getElementById("detalle").style.display = "none"
-        document.getElementById("menu").style.display = "block"
     }
+
+document.getElementById("confirmarPedido").onclick = function() {
+    let cantidad = parseInt(document.getElementById("cantidad").value)
+    if (cantidad > 0 && cantidad <= maxCantidad) {
+        let total = cantidad * precioUnitario
+        pedidos.push({producto: productoSeleccionado, cantidad: cantidad, total: total})
+
+        alert(`Muchas gracias, tu pedido de ${cantidad} ${productoSeleccionado}(s) ha sido realizado. Total: $${total}`)
+    } else {
+        alert(`No podemos procesar esa cantidad. Por favor, elige lo que dice la consigna`)
+    }
+    document.getElementById("detalle").style.display = "none"
+    document.getElementById("menu").style.display = "block"
 }
+
 
 function verPedido() {
     let resumenContainer = document.getElementById("resumenPedidos")
@@ -146,7 +123,7 @@ function verPedido() {
             listaPedidos.appendChild(item)
         });
     }
-    resumenContainer.style = "block"
+    resumenContainer.style.display = "block"
 }
 
 function cuentaFinal() {
