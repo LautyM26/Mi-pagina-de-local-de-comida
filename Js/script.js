@@ -21,19 +21,19 @@ function inicializarMenu(productos) {
         const imagen = document.createElement("img");
         imagen.src = producto.imagen;
         imagen.alt = producto.nombre;
-        imagen.className = "card-img-top";
+        imagen.className = "card-imagen-top";
         card.appendChild(imagen);
 
         const cardBody = document.createElement("div");
         cardBody.className = "card-body";
 
         const cardTitle = document.createElement("h5");
-        cardTitle.className = "card-title";
+        cardTitle.className = "card-titulo";
         cardTitle.innerText = producto.nombre;
         cardBody.appendChild(cardTitle);
 
         const cardText = document.createElement("p");
-        cardText.className = "card-text";
+        cardText.className = "card-texto";
         cardText.innerText = `Precio: $${producto.precio}`;
         cardBody.appendChild(cardText);
 
