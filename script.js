@@ -5,7 +5,7 @@ let productoSeleccionado
 const menu = document.getElementById("menu")
 document.getElementById("botonContinuar").onclick = guardarNombre
 
-fetch("../productos.json")
+fetch("productos.json")
 .then(response => response.json())
 .then(data => {
     inicializarMenu(data)
