@@ -1,7 +1,7 @@
 [
-    { "nombre": "Pizza", "precio": 8000, "stock": 200, "imagen": "../imagenes.jpg/pizzaJS.webp" },
-    { "nombre": "Hamburguesa", "precio": 6000, "stock": 300, "imagen": "../imagenes.jpg/hamburguesasJS.avif" },
-    { "nombre": "Pancho", "precio": 3000, "stock": 500, "imagen": "../imagenes.jpg/panchosJS.webp" },
-    { "nombre": "Fideos", "precio": 7500, "stock": 100, "imagen": "../imagenes.jpg/fideosJS.jpg" },
-    { "nombre": "Sushi", "precio": 13000, "stock": 100, "imagen": "../imagenes.jpg/sushiJS.jpg" }
+    { "nombre": "Pizza", "precio": 8000, "stock": 200, "imagen": "imagenes.jpg/pizzaJS.webp" },
+    { "nombre": "Hamburguesa", "precio": 6000, "stock": 300, "imagen": "imagenes.jpg/hamburguesasJS.avif" },
+    { "nombre": "Pancho", "precio": 3000, "stock": 500, "imagen": "imagenes.jpg/panchosJS.webp" },
+    { "nombre": "Fideos", "precio": 7500, "stock": 100, "imagen": "imagenes.jpg/fideosJS.jpg" },
+    { "nombre": "Sushi", "precio": 13000, "stock": 100, "imagen": "imagenes.jpg/sushiJS.jpg" }
 ]
