@@ -29,12 +29,51 @@
     </header>
 
     <main>
+
         <h1 class="d-flex justify-content-center"> Bienvenidos a mi restaurante </h1>
 
         <div id="entrada">
             <label for="nombre">Ingrese su nombre:</label>
             <input type="text" id="nombre">
             <button id="botonContinuar">Continuar</button>
+
+            <div class="container">
+              <section class="info-section">
+                <h2>Sobre Nosotros</h2>
+                <div class="content-box">
+                  <p>
+                    Bienvenidos a "Arbys", tu destino culinario para explorar los mejores platos. Nos enorgullecemos de ofrecer una experiencia gastronómica única.
+                  </p>
+                  <p>
+                    Nuestro chef, con más de 20 años de experiencia internacional, crea cada plato con pasión y los ingredientes más frescos del mercado local.
+                  </p>
+                </div>
+              </section>
+            
+              <section class="info-section">
+                <h2>Nuestro Menú</h2>
+                <div class="menu-grid">
+                  <div class="menu-item">
+                    <img src="imagenes.jpg/pizza-inicio.jpg" alt="Pizza al horno" width="400" height="200">
+                    <div class="menu-item-content">
+                      <h3>Especial de la casa</h3>
+                      <p>
+                        Auténtica pizza al horno, la mejor pizza de la ciudad la encontras aca, en nuestra especialidad de la casa.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="menu-item">
+                    <img src="imagenes.jpg/sushi-inicio.jpg" alt="Sushi Variado" width="400" height="200">
+                    <div class="menu-item-content">
+                      <h3>Sushi Variado</h3>
+                      <p>
+                        Una selección de los mejores rolls y nigiris, preparados con pescado fresco de primera calidad y arroz de sushi perfectamente sazonado.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </section>
+        </div>
 
             <span> 
                 <div class="d-flex justify-content-center align-items-center vh-100">
@@ -60,10 +99,10 @@
                     </button>
                   </div>
                 </div> 
-            </span>     
+            </span>       
         </div>
     
-        <div class="padding card-container" id="menu" style="display: none;">
+        <div id="menu" class="container" style="display: none;">
             <p id="bienvenida"></p>
             <p class="columnas">¿Qué desea ordenar?</p>
         </div>
@@ -73,13 +112,65 @@
             <label for="cantidad">Cantidad:</label>
             <input type="number" id="cantidad">
             <button id="confirmarPedido">Confirmar Pedido</button>
-            <button id="cancelar">Cancelar</button>           
-        </div>
+            <button id="cancelar">Cancelar</button>   
+
+            <span class="d-flex justify-content-center m-3">
+              <div class="card" style="width: 18rem;">
+                <img src="imagenes.jpg/horarios.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Horarios</h5>
+                  <p class="card-text">Los horarios los tendras a continuacion</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">Lunes a Jueves: 11:00 - 23:00PM</li>
+                  <li class="list-group-item">Viernes y Sábado: 12:00 - 23:00PM</li>
+                  <li class="list-group-item">Domingo: 13:00 - 23:00PM</li>
+                </ul>
+              </div>
+            </span>
+
+            <span class="m-5">
+              <div class="accordion accordion-flush" id="accordionFlushExample">
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                      Ubicación
+                    </button>
+                  </h2>
+                  <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body">Calle Gourmet 123, Ciudad Foodie</div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                      Numero de celular
+                    </button>
+                  </h2>
+                  <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body">Teléfono: (123) 456-7890</div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                      Contactanos
+                    </button>
+                  </h2>
+                  <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body">Email: info@arbys.com</div>
+                  </div>
+                </div>
+              </div>
+            </span>
+
+        </div> 
 
         <div id="resumenPedidos" style="display: none;">
             <h3>Carrito de pedidos:</h3>
             <ul id="listaPedidos"></ul>
         </div>
+
     </main>
 
     <footer>
